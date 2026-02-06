@@ -2,6 +2,10 @@
 
 An app that compiles a recommended playlist based on song's features using the Spotify API.
 
+![Desktop View](https://github.com/user-attachments/assets/44d97b22-d9bd-4204-924f-8a865b39dba2)
+
+![Mobile View](https://github.com/user-attachments/assets/40f5930e-911e-4b6d-9b6b-e609d639ff8f)
+
 ## Features
 
 - 🎵 Input any Spotify track URL

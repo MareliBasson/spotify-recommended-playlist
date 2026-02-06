@@ -1,6 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSpotifyApi, getAccessToken } from '@/lib/spotify';
 
+interface RecommendationParams {
+  seed_tracks: string[];
+  limit: number;
+  target_acousticness?: number;
+  target_danceability?: number;
+  target_energy?: number;
+  target_instrumentalness?: number;
+  target_liveness?: number;
+  target_speechiness?: number;
+  target_valence?: number;
+  target_tempo?: number;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { trackId, selectedFeatures } = await request.json();
@@ -20,7 +33,7 @@ export async function POST(request: NextRequest) {
     const audioFeatures = await spotifyApi.getAudioFeaturesForTrack(trackId);
     
     // Build recommendation parameters based on selected features
-    const params: any = {
+    const params: RecommendationParams = {
       seed_tracks: [trackId],
       limit: 20,
     };

@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
     const { url } = await request.json();
     
     // Extract track ID from Spotify URL
-    const trackIdMatch = url.match(/track\/([a-zA-Z0-9]+)/);
+    const trackIdMatch = url.match(/track\/([a-zA-Z0-9]+)(?:[?#]|$)/);
     if (!trackIdMatch) {
       return NextResponse.json({ error: 'Invalid Spotify URL' }, { status: 400 });
     }

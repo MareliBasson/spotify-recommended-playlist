@@ -19,7 +19,7 @@ export async function getAccessToken() {
     api.setAccessToken(data.body['access_token']);
     return data.body['access_token'];
   } catch (error) {
-    console.error('Error getting access token:', error);
+    console.error('Failed to authenticate with Spotify API:', error);
     throw error;
   }
 }

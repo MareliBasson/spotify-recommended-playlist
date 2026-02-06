@@ -241,41 +241,57 @@ export default function Home() {
                       label: "Acousticness",
                       description: "How acoustic the track is",
                       value: trackInfo.audioFeatures.acousticness,
+                      isPercentage: true,
+                      unit: "",
                     },
                     danceability: {
                       label: "Danceability",
                       description: "How suitable for dancing",
                       value: trackInfo.audioFeatures.danceability,
+                      isPercentage: true,
+                      unit: "",
                     },
                     energy: {
                       label: "Energy",
                       description: "Intensity and activity",
                       value: trackInfo.audioFeatures.energy,
+                      isPercentage: true,
+                      unit: "",
                     },
                     instrumentalness: {
                       label: "Instrumentalness",
                       description: "Predicts if track has no vocals",
                       value: trackInfo.audioFeatures.instrumentalness,
+                      isPercentage: true,
+                      unit: "",
                     },
                     liveness: {
                       label: "Liveness",
                       description: "Presence of an audience",
                       value: trackInfo.audioFeatures.liveness,
+                      isPercentage: true,
+                      unit: "",
                     },
                     speechiness: {
                       label: "Speechiness",
                       description: "Presence of spoken words",
                       value: trackInfo.audioFeatures.speechiness,
+                      isPercentage: true,
+                      unit: "",
                     },
                     valence: {
                       label: "Valence",
                       description: "Musical positiveness",
                       value: trackInfo.audioFeatures.valence,
+                      isPercentage: true,
+                      unit: "",
                     },
                     tempo: {
                       label: "Tempo",
                       description: "Overall tempo (BPM)",
                       value: trackInfo.audioFeatures.tempo,
+                      isPercentage: false,
+                      unit: " BPM",
                     },
                   }).map(([key, feature]) => (
                     <div
@@ -290,8 +306,8 @@ export default function Home() {
                           {feature.description}
                         </p>
                         <p className="text-sm font-semibold text-green-600">
-                          Current: {formatFeatureValue(feature.value, key !== "tempo")}
-                          {key === "tempo" && " BPM"}
+                          Current: {formatFeatureValue(feature.value, feature.isPercentage)}
+                          {feature.unit}
                         </p>
                       </div>
                       <Switch
