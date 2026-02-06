@@ -55,10 +55,10 @@ export async function POST(request: NextRequest) {
     const recommendations = await spotifyApi.getRecommendations(params);
     
     return NextResponse.json({
-      tracks: recommendations.body.tracks.map(track => ({
+      tracks: recommendations.body.tracks.map((track: any) => ({
         id: track.id,
         name: track.name,
-        artists: track.artists.map(a => a.name),
+        artists: track.artists.map((a: any) => a.name),
         album: track.album.name,
         image: track.album.images[0]?.url,
         url: track.external_urls.spotify,

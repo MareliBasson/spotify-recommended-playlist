@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       track: {
         id: trackInfo.body.id,
         name: trackInfo.body.name,
-        artists: trackInfo.body.artists.map(a => a.name),
+        artists: trackInfo.body.artists.map((a: any) => a.name),
         album: trackInfo.body.album.name,
         image: trackInfo.body.album.images[0]?.url,
       },
